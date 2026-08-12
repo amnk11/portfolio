@@ -1,45 +1,73 @@
-@import "sketchbook-ui/style.css";
 @import "tailwindcss";
 
-:root {
-  --background: #faf8f5;
-  --foreground: #1c1917;
-  --font-caveat: 'Caveat', cursive;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-jakarta-sans), system-ui, -apple-system, sans-serif;
-  --font-mono: var(--font-geist-mono), monospace;
-  --font-handwriting: var(--font-caveat), 'Caveat', cursive;
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #141312;
-    --foreground: #f5f5f4;
+    --bg-main: #0b0b0e;
+    --bg-card: #141418;
+    --bg-card-hover: #19191e;
+    --border-subtle: rgba(255, 255, 255, 0.08);
+    --border-light: rgba(255, 255, 255, 0.14);
+    --text-primary: #f4f4f5;
+    --text-secondary: #a1a1aa;
+    --text-muted: #71717a;
+    --accent-emerald: #10b981;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    background-color: #0b0b0e;
+    color: #f4f4f5;
+  }
+
+  body {
+    background-color: #0b0b0e;
+    color: #f4f4f5;
+    font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
   }
 }
 
-html {
-  scroll-behavior: smooth;
+/* Serif Italic Editorial Accent Class */
+.font-serif-italic {
+  font-family: var(--font-serif), Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-sans);
-  background-image: 
-    radial-gradient(rgba(28, 25, 23, 0.05) 1px, transparent 1px);
-  background-size: 24px 24px;
-  overflow-x: hidden;
+/* Glass & Card Surface Utilities */
+.dark-glass {
+  background: rgba(17, 17, 20, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.font-handwriting {
-  font-family: var(--font-caveat), 'Caveat', cursive;
+.editorial-card {
+  background-color: #141418;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-h1, h2, h3, h4 {
-  text-wrap: balance;
+.editorial-card:hover {
+  background-color: #19191e;
+  border-color: rgba(255, 255, 255, 0.14);
+  transform: translateY(-2px);
 }
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0b0b0e;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #27272a;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3f3f46;
+}
+

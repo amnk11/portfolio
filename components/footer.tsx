@@ -1,52 +1,61 @@
 "use client";
 
-import React from "react";
-import { PORTFOLIO_CONFIG } from "@/config/portfolio";
-
-export function Footer() {
+export default function Footer() {
   return (
-    <footer className="py-10 border-t border-stone-200/80 dark:border-stone-800/80 bg-stone-100/40 dark:bg-stone-950/40">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left">
-        {/* Brand & Note */}
+    <footer className="border-t border-white/10 pt-16 pb-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto text-zinc-400">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-10 pb-12">
         <div>
-          <span className="font-handwriting text-2xl font-bold text-stone-900 dark:text-stone-100 block">
-            {PORTFOLIO_CONFIG.name}
-          </span>
-          <p className="text-xs text-stone-500 dark:text-stone-400 mt-1">
-            © {new Date().getFullYear()} Aman. All rights reserved.
+          <h3 className="text-2xl font-bold text-white tracking-tight mb-2">
+            Aman<span className="text-emerald-400 font-serif-italic font-normal">*</span>
+          </h3>
+          <p className="text-sm font-light text-zinc-400">
+            Full-stack developer & product engineer.
           </p>
         </div>
 
-        {/* Handwritten Quirky Note */}
-        <div className="font-handwriting text-amber-800 dark:text-amber-300 text-base transform -rotate-1 select-none">
-          built with too much coffee ☕
+        <div>
+          <h4 className="text-xs font-semibold tracking-widest text-zinc-300 uppercase mb-3">
+            LOCATION
+          </h4>
+          <p className="text-sm font-light text-zinc-400">India</p>
         </div>
 
-        {/* Footer Links */}
-        <div className="flex items-center gap-6 text-xs font-medium text-stone-600 dark:text-stone-400">
-          <a
-            href={PORTFOLIO_CONFIG.socials.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-stone-950 dark:hover:text-stone-100 transition-colors"
-          >
-            GitHub
-          </a>
-          <a
-            href={PORTFOLIO_CONFIG.socials.linkedin}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-stone-950 dark:hover:text-stone-100 transition-colors"
-          >
-            LinkedIn
-          </a>
-          <a
-            href={`mailto:${PORTFOLIO_CONFIG.email}`}
-            className="hover:text-stone-950 dark:hover:text-stone-100 transition-colors"
-          >
-            Email
-          </a>
+        <div>
+          <h4 className="text-xs font-semibold tracking-widest text-zinc-300 uppercase mb-3">
+            CONNECT
+          </h4>
+          <div className="flex flex-col space-y-2 text-sm font-light">
+            <a
+              href="mailto:contact@aman.dev"
+              className="hover:text-white transition-colors w-fit"
+            >
+              Email
+            </a>
+            <a
+              href="https://github.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-white transition-colors w-fit"
+            >
+              GitHub
+            </a>
+            <a
+              href="https://linkedin.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-white transition-colors w-fit"
+            >
+              LinkedIn
+            </a>
+          </div>
         </div>
+      </div>
+
+      <div className="pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between text-xs text-zinc-400 gap-4">
+        <p>© 2026 Aman. All rights reserved.</p>
+        <p className="font-serif-italic text-zinc-300 text-sm">
+          Built with intent. Powered by curiosity.
+        </p>
       </div>
     </footer>
   );

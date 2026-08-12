@@ -1,33 +1,41 @@
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans, Caveat, Geist_Mono } from "next/font/google";
-import { SketchProvider } from "sketchbook-ui";
+import { Plus_Jakarta_Sans, Newsreader } from "next/font/google";
 import "./globals.css";
 
-const jakartaSans = Plus_Jakarta_Sans({
-  variable: "--font-jakarta-sans",
+const plusJakarta = Plus_Jakarta_Sans({
+  variable: "--font-sans",
   subsets: ["latin"],
   display: "swap",
+  weight: ["300", "400", "500", "600", "700", "800"],
 });
 
-const caveat = Caveat({
-  variable: "--font-caveat",
+const newsreader = Newsreader({
+  variable: "--font-serif",
   subsets: ["latin"],
   display: "swap",
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-  display: "swap",
+  style: ["normal", "italic"],
+  weight: ["400", "500", "600"],
 });
 
 export const metadata: Metadata = {
-  title: "Aman — Full-Stack Developer Portfolio",
-  description: "Personal portfolio of Aman, a full-stack developer building useful, fast, and thoughtfully designed web experiences.",
-  keywords: ["Aman", "Full-Stack Developer", "Portfolio", "React", "Next.js", "TypeScript"],
+  title: "Aman — Full-Stack Developer & Product Engineer",
+  description:
+    "Editorial portfolio of Aman, a full-stack developer based in India. Designing and engineering production-ready web applications, APIs, and digital experiences.",
+  keywords: [
+    "Aman",
+    "Full-Stack Developer",
+    "Software Engineer",
+    "React",
+    "Next.js",
+    "Node.js",
+    "TypeScript",
+    "Portfolio",
+    "India",
+  ],
   openGraph: {
-    title: "Aman — Full-Stack Developer Portfolio",
-    description: "A developer's personal sketchbook brought to life on the web.",
+    title: "Aman — Full-Stack Developer & Product Engineer",
+    description:
+      "Designing and building high-converting, modern digital products for startups and growing businesses.",
     type: "website",
   },
 };
@@ -40,13 +48,12 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${jakartaSans.variable} ${caveat.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${plusJakarta.variable} ${newsreader.variable} dark scroll-smooth antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-stone-50 text-stone-900 dark:bg-stone-950 dark:text-stone-100 transition-colors">
-        <SketchProvider>
-          {children}
-        </SketchProvider>
+      <body className="min-h-screen bg-[#0b0b0e] text-[#f4f4f5] font-sans selection:bg-white/20 selection:text-white overflow-x-hidden">
+        {children}
       </body>
     </html>
   );
 }
+

@@ -1,118 +1,194 @@
 export interface Project {
   id: string;
   title: string;
-  number: string;
   description: string;
   stack: string[];
-  githubUrl: string;
   liveUrl?: string;
-  featuredNote?: string;
-  cardVariant?: "paper" | "notebook" | "sticky";
+  sourceUrl?: string;
+  icon?: string;
+  tapeRotation?: string;
+  cardRotation?: string;
 }
 
-export interface SkillCategory {
-  title: string;
-  subtitle: string;
-  skills: string[];
+export interface ExperienceItem {
+  id: string;
+  date: string;
+  role: string;
+  company: string;
+  description: string;
+  stack: string[];
   note?: string;
-  badgeVariant?: "default" | "success" | "warning" | "error" | "info";
 }
 
 export const PORTFOLIO_CONFIG = {
+  name: "Aman.dev",
+  tagline: "code. build. ship.",
+  title: "Hi, I'm Aman",
+  role: "< Full Stack Developer />",
+  greeting: "// hello, world!",
+  bio: "I build clean, modern and user-friendly websites & web apps. I love turning ideas into real products that solve problems.",
+  statusText: "// open to work :)",
+
+  codeWindow: {
+    arrowLabel: "// a bit about how I think",
+    notes: ["clean code", "better solutions", "real impact"],
+    snippet: `const developer = {
   name: "Aman",
-  role: "Full-Stack Developer",
-  headline: "I build things for the web.",
-  shortBio: "Full-stack developer focused on building useful, fast, and thoughtfully designed web experiences.",
-  email: "kumar.aman.dev@gmail.com",
-  
+  passion: ["code", "design", "problem solving"],
+  stack: ["React", "Next.js", "TypeScript"],
+  mindset: "always learning",
+};
+
+while (building) {
+  getBetter();
+  ship();
+}`
+  },
+
+  aboutMe: {
+    header: "// about me",
+    checklist: [
+      "> Computer Science Student",
+      "> Self learner",
+      "> Problem solver",
+      "> Tech enthusiast",
+      "> Clean code lover",
+      "> Always curious :)"
+    ],
+    paragraph: "I enjoy building things for the web. From simple ideas to full-fledged applications, I love the entire journey of bringing products to life.",
+    highlightText: "Always learning. Always building.",
+    currently: {
+      header: "// currently",
+      items: [
+        { label: "Building projects", checked: true },
+        { label: "Learning Next.js", checked: true },
+        { label: "Exploring System Design", checked: true },
+        { label: "Improving DSA", checked: true },
+        { label: "One step at a time.", checked: true }
+      ]
+    }
+  },
+
+  skills: {
+    header: "// skills",
+    subtitle: "tools I use to turn ideas into things",
+    tags: [
+      { name: "HTML", rotation: "-rotate-1" },
+      { name: "CSS", rotation: "rotate-2" },
+      { name: "JavaScript", rotation: "-rotate-2" },
+      { name: "TypeScript", rotation: "rotate-1" },
+      { name: "React", rotation: "-rotate-1" },
+      { name: "Next.js", rotation: "rotate-2" },
+      { name: "Node.js", rotation: "-rotate-2" },
+      { name: "Express.js", rotation: "rotate-1" },
+      { name: "MongoDB", rotation: "-rotate-1" },
+      { name: "PostgreSQL", rotation: "rotate-2" },
+      { name: "Tailwind CSS", rotation: "-rotate-2" },
+      { name: "Git", rotation: "rotate-1" },
+      { name: "Docker", rotation: "-rotate-1" },
+      { name: "Zod", rotation: "rotate-2" },
+      { name: "tRPC", rotation: "-rotate-1" },
+      { name: "Drizzle", rotation: "rotate-1" },
+      { name: "GitHub", rotation: "-rotate-2" }
+    ]
+  },
+
+  experience: {
+    header: "// experience",
+    items: [
+      {
+        id: "exp-1",
+        date: "2024 — Present",
+        role: "Full Stack Developer",
+        company: "Personal Projects & Open Source",
+        description: "Designing and engineering full stack web applications using modern React, Next.js, Node.js, and TypeScript. Focus on clean architecture, performance, and intuitive UX.",
+        stack: ["Next.js", "React", "TypeScript", "Tailwind CSS", "PostgreSQL", "tRPC"],
+        note: "// shipping real software"
+      },
+      {
+        id: "exp-2",
+        date: "2023 — 2024",
+        role: "Frontend Developer & CS Student",
+        company: "Independent Client Work",
+        description: "Built responsive user interfaces, custom design systems, and real-time interactive dashboards for clients and capstone projects.",
+        stack: ["React", "JavaScript", "HTML/CSS", "Node.js", "MongoDB"],
+        note: "// deep diving into system design"
+      }
+    ] as ExperienceItem[]
+  },
+
+  projects: {
+    header: "// selected projects",
+    viewAllText: "view all projects →",
+    items: [
+      {
+        id: "savorly",
+        title: "Savorly",
+        description: "A full stack food ordering application built with the MERN stack featuring real-time order tracking and menu management.",
+        stack: ["React", "Node.js", "MongoDB", "Express"],
+        liveUrl: "#",
+        sourceUrl: "https://github.com/amnk11",
+        icon: "⭐️",
+        tapeRotation: "-rotate-3",
+        cardRotation: "rotate-0.5"
+      },
+      {
+        id: "chat-app",
+        title: "Chat App",
+        description: "Real-time messaging platform using WebSockets, instant message notifications, room authentication, and media sharing.",
+        stack: ["React", "Socket.io", "Express", "Node.js", "Tailwind"],
+        liveUrl: "#",
+        sourceUrl: "https://github.com/amnk11",
+        icon: "💬",
+        tapeRotation: "rotate-2",
+        cardRotation: "-rotate-0.5"
+      },
+      {
+        id: "auth-system",
+        title: "Auth System",
+        description: "Robust authentication & authorization system with JWT, refresh tokens, role-based access control, and password hashing.",
+        stack: ["Node.js", "TypeScript", "PostgreSQL", "Drizzle ORM"],
+        liveUrl: "#",
+        sourceUrl: "https://github.com/amnk11",
+        icon: "🔒",
+        tapeRotation: "-rotate-1",
+        cardRotation: "rotate-1"
+      },
+      {
+        id: "oidc-service",
+        title: "OIDC Authentication Service",
+        description: "OAuth2 & OpenID Connect identity provider service supporting client credentials grant, single sign-on (SSO), and key rotation.",
+        stack: ["TypeScript", "Next.js", "tRPC", "Zod", "PostgreSQL"],
+        liveUrl: "#",
+        sourceUrl: "https://github.com/amnk11",
+        icon: "🗝️",
+        tapeRotation: "rotate-3",
+        cardRotation: "-rotate-1"
+      }
+    ] as Project[]
+  },
+
+  contact: {
+    header: "// get in touch",
+    envelopeText: "Have a project in mind or just want to say hi? Feel free to reach out!",
+    email: "hello@aman.dev",
+    statement: "Let's build something awesome together!",
+    underlineWord: "something awesome."
+  },
+
+  footer: "// made with ♡ and lots of coffee ☕ //",
   socials: {
     github: "https://github.com/amnk11",
     linkedin: "https://www.linkedin.com/in/kumaraman17/",
+    email: "mailto:hello@aman.dev"
   },
 
-  contactFormUrl: "https://rivenforms.in/form/8477b9da-06e7-40bb-865c-cebb0be5f440?embed=true",
-
-  projects: [
-    {
-      id: "sketchflow",
-      number: "01",
-      title: "SketchFlow",
-      description: "Visual node-based workflow builder and architecture planning tool for engineering teams with real-time multiplayer editing.",
-      stack: ["Next.js", "TypeScript", "React Flow", "Tailwind CSS", "WebSockets"],
-      githubUrl: "https://github.com/amnk11",
-      liveUrl: "https://github.com/amnk11",
-      featuredNote: "one of my favorites ⭐",
-      cardVariant: "notebook"
-    },
-    {
-      id: "pulsedb",
-      number: "02",
-      title: "PulseDB Studio",
-      description: "Lightweight PostgreSQL performance dashboard and query inspector with instant EXPLAIN ANALYZE visualizations.",
-      stack: ["React", "Node.js", "Express", "PostgreSQL", "Drizzle ORM"],
-      githubUrl: "https://github.com/amnk11",
-      liveUrl: "https://github.com/amnk11",
-      featuredNote: "high performance ⚡",
-      cardVariant: "paper"
-    },
-    {
-      id: "devshelf",
-      number: "03",
-      title: "DevShelf CLI",
-      description: "Privacy-first snippet manager and terminal note vault built with TypeScript and local sqlite sync.",
-      stack: ["Bun", "TypeScript", "tRPC", "SQLite", "Commander"],
-      githubUrl: "https://github.com/amnk11",
-      featuredNote: "open source 📦",
-      cardVariant: "sticky"
-    },
-    {
-      id: "typecraft",
-      number: "04",
-      title: "TypeCraft UI",
-      description: "Accessible design token inspector and component workshop tailored for rapid full-stack prototyping.",
-      stack: ["Next.js", "TypeScript", "Tailwind CSS", "Radix Primitives"],
-      githubUrl: "https://github.com/amnk11",
-      liveUrl: "https://github.com/amnk11",
-      featuredNote: "handcrafted 🎨",
-      cardVariant: "paper"
-    }
-  ] as Project[],
-
-  skillCategories: [
-    {
-      title: "Frontend",
-      subtitle: "crafting responsive & intuitive UIs",
-      skills: ["React", "Next.js", "TypeScript", "JavaScript", "HTML", "CSS", "Tailwind CSS"],
-      note: "obsessed with micro-interactions",
-      badgeVariant: "info"
-    },
-    {
-      title: "Backend",
-      subtitle: "scalable services & APIs",
-      skills: ["Node.js", "Express", "tRPC", "REST APIs", "GraphQL"],
-      note: "type-safe end to end",
-      badgeVariant: "success"
-    },
-    {
-      title: "Database",
-      subtitle: "data modeling & storage",
-      skills: ["PostgreSQL", "MongoDB", "Drizzle ORM", "Prisma", "Redis"],
-      note: "clean schemas",
-      badgeVariant: "warning"
-    },
-    {
-      title: "Tools & DevOps",
-      subtitle: "workflow & deployment",
-      skills: ["Git", "GitHub", "Docker", "Bun", "pnpm", "Vercel", "Linux"],
-      note: "fast developer feedback loops",
-      badgeVariant: "default"
-    }
-  ] as SkillCategory[],
-
-  about: {
-    heading: "About Me",
-    paragraph1: "I'm a full-stack developer who loves crafting web applications that feel fast, intuitive, and genuinely delightful to use.",
-    paragraph2: "My approach combines clean architecture with obsessive attention to user experience. I care deeply about performance, clean code, and building useful products that solve real problems.",
-    paragraph3: "When I'm not coding, you'll find me exploring new web APIs, sketching interface ideas, or refining my developer workflow tools.",
-  }
+  navLinks: [
+    { name: "_home", href: "#home" },
+    { name: "_about", href: "#about" },
+    { name: "_skills", href: "#skills" },
+    { name: "_experience", href: "#experience" },
+    { name: "_projects", href: "#projects" },
+    { name: "_contact", href: "#contact" }
+  ]
 };
