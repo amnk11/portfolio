@@ -4,25 +4,22 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
 const NAV_ITEMS = [
-  { label: "SKILLS", href: "#skills" },
+  { label: "ABOUT", href: "#about" },
+  { label: "PROCESS", href: "#process" },
   { label: "WORK", href: "#work" },
   { label: "CONTACT", href: "#contact" },
 ];
 
 export default function Navbar() {
-  const [activeSection, setActiveSection] = useState("#skills");
-
-  const [scrolled, setScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState("#about");
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 40);
-
       const sections = NAV_ITEMS.map((item) =>
         document.querySelector(item.href)
       );
 
-      const scrollPosition = window.scrollY + 220;
+      const scrollPosition = window.scrollY + 250;
 
       sections.forEach((section, index) => {
         if (section) {
@@ -49,16 +46,18 @@ export default function Navbar() {
   };
 
   return (
-    <header className="fixed top-3 sm:top-5 left-1/2 -translate-x-1/2 z-50 w-[95%] sm:w-auto max-w-full">
+    <motion.header
+      initial={{ y: "-100%" }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1] }}
+      className="fixed top-0 left-1/2 -translate-x-1/2 z-50 pointer-events-auto"
+    >
       <nav
         aria-label="Main Navigation"
-        className={`rounded-full px-2 sm:px-6 py-1.5 sm:py-2.5 transition-all duration-500 max-w-full overflow-x-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden ${
-          scrolled
-            ? "bg-[#0f0f14]/92 backdrop-blur-xl border border-white/15 shadow-[0_10px_38px_rgba(0,0,0,0.8)]"
-            : "bg-[#121218]/80 backdrop-blur-md border border-white/10 shadow-lg"
-        }`}
+        className="bg-[#121218]/70 backdrop-blur-xl border-b border-x border-white/12 rounded-b-2xl sm:rounded-b-[24px] rounded-t-none shadow-[0_12px_32px_rgba(0,0,0,0.6)] px-7 sm:px-12 py-3 sm:py-3.5 flex items-center justify-center"
       >
-        <div className="flex items-center justify-start sm:justify-center space-x-1 sm:space-x-2 min-w-max px-1">
+
+        <div className="flex items-center justify-center space-x-6 sm:space-x-10">
           {NAV_ITEMS.map((item) => {
             const isActive = activeSection === item.href;
             return (
@@ -66,26 +65,31 @@ export default function Navbar() {
                 key={item.label}
                 href={item.href}
                 onClick={(e) => scrollToSection(e, item.href)}
-                className={`relative px-2.5 sm:px-4 py-1.5 text-[10px] sm:text-[11px] font-semibold tracking-wider transition-colors duration-200 whitespace-nowrap rounded-full focus-ring ${
-                  isActive ? "text-white" : "text-zinc-400 hover:text-zinc-200"
+                className={`relative text-xs sm:text-sm font-sans tracking-widest uppercase font-semibold transition-all duration-200 focus-ring whitespace-nowrap ${
+                  isActive
+                    ? "text-white font-bold"
+                    : "text-zinc-300 hover:text-white"
                 }`}
                 aria-current={isActive ? "page" : undefined}
               >
+                <span>{item.label}</span>
                 {isActive && (
                   <motion.span
-                    layoutId="activePill"
-                    className="absolute inset-0 bg-white/15 border border-white/20 rounded-full z-0"
+                    layoutId="activeUnderline"
+                    className="absolute -bottom-1 left-0 right-0 h-[2px] bg-white rounded-full"
                     transition={{ type: "spring", stiffness: 380, damping: 30 }}
                   />
                 )}
-                <span className="relative z-10">{item.label}</span>
               </a>
             );
           })}
         </div>
       </nav>
-    </header>
+    </motion.header>
   );
 }
+
+
+
 
 
