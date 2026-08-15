@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans, Newsreader } from "next/font/google";
+import { Plus_Jakarta_Sans, Instrument_Serif } from "next/font/google";
 import "./globals.css";
 
 const plusJakarta = Plus_Jakarta_Sans({
@@ -9,12 +9,12 @@ const plusJakarta = Plus_Jakarta_Sans({
   weight: ["300", "400", "500", "600", "700", "800"],
 });
 
-const newsreader = Newsreader({
+const instrumentSerif = Instrument_Serif({
   variable: "--font-serif",
   subsets: ["latin"],
   display: "swap",
+  weight: ["400"],
   style: ["normal", "italic"],
-  weight: ["400", "500", "600"],
 });
 
 export const metadata: Metadata = {
@@ -48,12 +48,13 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${plusJakarta.variable} ${newsreader.variable} dark scroll-smooth antialiased`}
+      className={`${plusJakarta.variable} ${instrumentSerif.variable} dark scroll-smooth antialiased`}
     >
-      <body className="min-h-screen bg-[#0b0b0e] text-[#f4f4f5] font-sans selection:bg-white/20 selection:text-white overflow-x-hidden">
+      <body className="min-h-screen bg-[#08080a] text-[#f4f4f5] font-sans selection:bg-emerald-500/30 selection:text-emerald-200 overflow-x-hidden">
         {children}
       </body>
     </html>
   );
 }
+
 

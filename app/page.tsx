@@ -1,6 +1,8 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
+import Skills from "@/components/Skills";
+import Experience from "@/components/Experience";
 import Process from "@/components/Process";
 import Work from "@/components/Work";
 import FAQ from "@/components/FAQ";
@@ -9,8 +11,8 @@ import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[#0b0b0e] text-[#f4f4f5] relative selection:bg-white/20 selection:text-white">
-      {/* Floating Centered Navigation */}
+    <main className="min-h-screen bg-[#08080a] text-[#f4f4f5] relative selection:bg-emerald-500/30 selection:text-emerald-200">
+      {/* Floating Dock Navigation */}
       <Navbar />
 
       {/* Hero Section */}
@@ -19,13 +21,19 @@ export default function Home() {
       {/* About Section */}
       <About />
 
-      {/* Process / Capabilities Section */}
+      {/* Technical Skills Matrix */}
+      <Skills />
+
+      {/* Work History & Roles */}
+      <Experience />
+
+      {/* Engineering Discipline & Process Section */}
       <Process />
 
-      {/* Selected Work Section */}
+      {/* Selected Work Showcase */}
       <Work />
 
-      {/* Frequently Asked Questions Section */}
+      {/* Frequently Asked Questions */}
       <FAQ />
 
       {/* Contact Section */}
@@ -36,3 +44,4 @@ export default function Home() {
     </main>
   );
 }
+
