@@ -58,7 +58,7 @@ export default function Footer() {
           <div className="flex flex-col space-y-2 text-sm font-light">
             <a
               href="mailto:contact@aman.dev"
-              className="hover:text-white transition-colors w-fit"
+              className="hover:text-white transition-colors w-fit focus-ring rounded"
             >
               Email
             </a>
@@ -66,7 +66,8 @@ export default function Footer() {
               href="https://github.com/amnk11"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-white transition-colors w-fit"
+              className="hover:text-white transition-colors w-fit focus-ring rounded"
+              aria-label="GitHub Profile"
             >
               GitHub
             </a>
@@ -74,7 +75,8 @@ export default function Footer() {
               href="https://www.linkedin.com/in/kumaraman17/"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-white transition-colors w-fit"
+              className="hover:text-white transition-colors w-fit focus-ring rounded"
+              aria-label="LinkedIn Profile"
             >
               LinkedIn
             </a>
@@ -92,8 +94,8 @@ export default function Footer() {
 
           <button
             onClick={scrollToTop}
-            className="w-9 h-9 rounded-full bg-[#14141c] border border-white/10 text-zinc-300 hover:text-white hover:border-white/25 flex items-center justify-center transition-all shadow-md active:scale-95"
-            aria-label="Scroll to top"
+            className="w-9 h-9 rounded-full bg-[#14141c] border border-white/10 text-zinc-300 hover:text-white hover:border-white/25 flex items-center justify-center transition-all shadow-md active:scale-95 focus-ring"
+            aria-label="Scroll to top of page"
           >
             <ArrowUp size={16} />
           </button>
@@ -102,4 +104,5 @@ export default function Footer() {
     </footer>
   );
 }
+
 

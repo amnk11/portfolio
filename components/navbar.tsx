@@ -4,16 +4,14 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
 const NAV_ITEMS = [
-  { label: "ABOUT", href: "#about" },
   { label: "SKILLS", href: "#skills" },
-  { label: "EXPERIENCE", href: "#experience" },
-  { label: "PROCESS", href: "#process" },
   { label: "WORK", href: "#work" },
   { label: "CONTACT", href: "#contact" },
 ];
 
 export default function Navbar() {
-  const [activeSection, setActiveSection] = useState("#about");
+  const [activeSection, setActiveSection] = useState("#skills");
+
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -51,15 +49,16 @@ export default function Navbar() {
   };
 
   return (
-    <header className="fixed top-3 sm:top-5 left-1/2 -translate-x-1/2 z-50 w-[92%] sm:w-auto max-w-full">
+    <header className="fixed top-3 sm:top-5 left-1/2 -translate-x-1/2 z-50 w-[95%] sm:w-auto max-w-full">
       <nav
-        className={`rounded-full px-3.5 sm:px-6 py-2 sm:py-2.5 transition-all duration-500 ${
+        aria-label="Main Navigation"
+        className={`rounded-full px-2 sm:px-6 py-1.5 sm:py-2.5 transition-all duration-500 max-w-full overflow-x-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden ${
           scrolled
-            ? "bg-[#0f0f14]/90 backdrop-blur-xl border border-white/15 shadow-[0_10px_38px_rgba(0,0,0,0.8)]"
-            : "bg-[#121218]/75 backdrop-blur-md border border-white/10 shadow-lg"
+            ? "bg-[#0f0f14]/92 backdrop-blur-xl border border-white/15 shadow-[0_10px_38px_rgba(0,0,0,0.8)]"
+            : "bg-[#121218]/80 backdrop-blur-md border border-white/10 shadow-lg"
         }`}
       >
-        <div className="flex items-center justify-center space-x-1 sm:space-x-2">
+        <div className="flex items-center justify-start sm:justify-center space-x-1 sm:space-x-2 min-w-max px-1">
           {NAV_ITEMS.map((item) => {
             const isActive = activeSection === item.href;
             return (
@@ -67,9 +66,10 @@ export default function Navbar() {
                 key={item.label}
                 href={item.href}
                 onClick={(e) => scrollToSection(e, item.href)}
-                className={`relative px-2.5 sm:px-4 py-1 sm:py-1.5 text-[10px] sm:text-[11px] font-semibold tracking-wider transition-colors duration-200 whitespace-nowrap rounded-full ${
+                className={`relative px-2.5 sm:px-4 py-1.5 text-[10px] sm:text-[11px] font-semibold tracking-wider transition-colors duration-200 whitespace-nowrap rounded-full focus-ring ${
                   isActive ? "text-white" : "text-zinc-400 hover:text-zinc-200"
                 }`}
+                aria-current={isActive ? "page" : undefined}
               >
                 {isActive && (
                   <motion.span
@@ -87,4 +87,5 @@ export default function Navbar() {
     </header>
   );
 }
+
 

@@ -1,7 +1,9 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 import ProjectCard, { ProjectProps } from "./ProjectCard";
+import ProjectModal from "./ProjectModal";
 
 const PROJECTS: ProjectProps[] = [
   {
@@ -43,6 +45,8 @@ const PROJECTS: ProjectProps[] = [
 ];
 
 export default function Work() {
+  const [selectedProject, setSelectedProject] = useState<ProjectProps | null>(null);
+
   return (
     <section id="work" className="py-20 sm:py-36 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       {/* Section Editorial Header */}
@@ -70,9 +74,19 @@ export default function Work() {
       {/* 3-Column Projects Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {PROJECTS.map((project) => (
-          <ProjectCard key={project.title} {...project} />
+          <ProjectCard
+            key={project.title}
+            {...project}
+            onSelect={(proj) => setSelectedProject(proj)}
+          />
         ))}
       </div>
+
+      {/* Interactive Project Case Study Modal */}
+      <ProjectModal
+        project={selectedProject}
+        onClose={() => setSelectedProject(null)}
+      />
 
       {/* "MORE PROJECTS" Indicator Pill */}
       <motion.div
@@ -93,4 +107,5 @@ export default function Work() {
     </section>
   );
 }
+
 

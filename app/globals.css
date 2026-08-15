@@ -3,13 +3,13 @@
 @layer base {
   :root {
     --bg-main: #08080a;
-    --bg-card: #0f0f14;
-    --bg-card-hover: #15151c;
+    --bg-card: #0e0e13;
+    --bg-card-hover: #131319;
     --border-subtle: rgba(255, 255, 255, 0.08);
     --border-light: rgba(255, 255, 255, 0.16);
     --text-primary: #f4f4f5;
-    --text-secondary: #a1a1aa;
-    --text-muted: #71717a;
+    --text-secondary: #d4d4d8;
+    --text-muted: #a1a1aa;
     --accent-emerald: #10b981;
   }
 
@@ -41,7 +41,7 @@
 
 /* Glass & Card Surface Utilities */
 .dark-glass {
-  background: rgba(15, 15, 20, 0.82);
+  background: rgba(14, 14, 19, 0.85);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.09);
@@ -62,6 +62,15 @@
   box-shadow: 0 12px 36px rgba(0, 0, 0, 0.5), 0 0 20px rgba(255, 255, 255, 0.03);
 }
 
+/* Accessible Focus Ring Utility */
+.focus-ring {
+  outline: none;
+}
+.focus-ring:focus-visible {
+  outline: 2px solid #10b981;
+  outline-offset: 3px;
+}
+
 /* Background Grid Pattern */
 .bg-grid-mask {
   background-image: linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
@@ -69,13 +78,6 @@
   background-size: 32px 32px;
   mask-image: radial-gradient(ellipse at center, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 75%);
   -webkit-mask-image: radial-gradient(ellipse at center, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 75%);
-}
-
-/* Subtle Text Gradient */
-.text-metallic {
-  background: linear-gradient(135deg, #ffffff 0%, #d4d4d8 60%, #9ca3af 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 
 /* Custom Scrollbar */
@@ -96,14 +98,15 @@
   background: #3f3f46;
 }
 
-/* Keyframe Animations */
-@keyframes pulseGlow {
-  0%, 100% { opacity: 0.4; transform: scale(1); }
-  50% { opacity: 0.7; transform: scale(1.05); }
+/* Accessibility: Respect Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
-.animate-glow {
-  animation: pulseGlow 6s ease-in-out infinite;
-}
 
 
