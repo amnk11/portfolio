@@ -8,6 +8,8 @@ export interface Project {
   icon?: string;
   tapeRotation?: string;
   cardRotation?: string;
+  category?: string;
+  imageSrc?: string;
 }
 
 export interface ExperienceItem {
@@ -42,20 +44,21 @@ export const PORTFOLIO_CONFIG = {
 while (building) {
   getBetter();
   ship();
-}`
+}`,
   },
 
   aboutMe: {
     header: "// about me",
     checklist: [
-      "> Computer Science Student",
+      "> Electrical Engineering Student",
+      "> Full Stack Developer",
       "> Self learner",
       "> Problem solver",
       "> Tech enthusiast",
       "> Clean code lover",
-      "> Always curious :)"
     ],
-    paragraph: "I enjoy building things for the web. From simple ideas to full-fledged applications, I love the entire journey of bringing products to life.",
+    paragraph:
+      "I enjoy building things for the web. From simple ideas to full-fledged applications, I love the entire journey of bringing products to life.",
     highlightText: "Always learning. Always building.",
     currently: {
       header: "// currently",
@@ -64,9 +67,9 @@ while (building) {
         { label: "Learning Next.js", checked: true },
         { label: "Exploring System Design", checked: true },
         { label: "Improving DSA", checked: true },
-        { label: "One step at a time.", checked: true }
-      ]
-    }
+        { label: "Looking for opportunities", checked: true },
+      ],
+    },
   },
 
   skills: {
@@ -89,8 +92,8 @@ while (building) {
       { name: "Zod", rotation: "rotate-2" },
       { name: "tRPC", rotation: "-rotate-1" },
       { name: "Drizzle", rotation: "rotate-1" },
-      { name: "GitHub", rotation: "-rotate-2" }
-    ]
+      { name: "GitHub", rotation: "-rotate-2" },
+    ],
   },
 
   experience: {
@@ -98,23 +101,15 @@ while (building) {
     items: [
       {
         id: "exp-1",
-        date: "2024 — Present",
-        role: "Full Stack Developer",
-        company: "Personal Projects & Open Source",
-        description: "Designing and engineering full stack web applications using modern React, Next.js, Node.js, and TypeScript. Focus on clean architecture, performance, and intuitive UX.",
-        stack: ["Next.js", "React", "TypeScript", "Tailwind CSS", "PostgreSQL", "tRPC"],
-        note: "// shipping real software"
+        date: "Dec 2025 — Jan 2026",
+        role: "Full Stack Developer Intern",
+        company: "Bret Innovation",
+        description:
+          "Built responsive web applications and dashboards using React.js, developed RESTful APIs with Node.js and Express.js, and integrated frontend features with backend services. Implemented Brand and Retail dashboards with campaign filters, sales and growth charts, and customer insights.",
+        stack: ["React.js", "Node.js", "Express.js", "REST APIs"],
+        note: "// building for real-world use",
       },
-      {
-        id: "exp-2",
-        date: "2023 — 2024",
-        role: "Frontend Developer & CS Student",
-        company: "Independent Client Work",
-        description: "Built responsive user interfaces, custom design systems, and real-time interactive dashboards for clients and capstone projects.",
-        stack: ["React", "JavaScript", "HTML/CSS", "Node.js", "MongoDB"],
-        note: "// deep diving into system design"
-      }
-    ] as ExperienceItem[]
+    ] as ExperienceItem[],
   },
 
   projects: {
@@ -122,65 +117,80 @@ while (building) {
     viewAllText: "view all projects →",
     items: [
       {
-        id: "savorly",
-        title: "Savorly",
-        description: "A full stack food ordering application built with the MERN stack featuring real-time order tracking and menu management.",
-        stack: ["React", "Node.js", "MongoDB", "Express"],
-        liveUrl: "#",
+        id: "riven",
+        title: "Riven",
+        description:
+          "A full stack form builder for creating customizable forms with authentication, dynamic fields, validation, and a modern dashboard experience.",
+        stack: [
+          "TypeScript",
+          "Next.js 16",
+          "React 19",
+          "Tailwind CSS 4",
+          "Radix UI",
+          "dnd-kit",
+          "React Flow",
+          "React Hook Form",
+          "Zod",
+          "Express 5",
+          "tRPC 11",
+          "PostgreSQL",
+          "Drizzle ORM",
+          "Better Auth",
+        ],
+        liveUrl: "https://rivenforms.in",
         sourceUrl: "https://github.com/amnk11",
-        icon: "⭐️",
+        icon: "✦",
+        category: "Full Stack / Web App",
+        imageSrc: "/riven_preview.jpg",
         tapeRotation: "-rotate-3",
-        cardRotation: "rotate-0.5"
-      },
-      {
-        id: "chat-app",
-        title: "Chat App",
-        description: "Real-time messaging platform using WebSockets, instant message notifications, room authentication, and media sharing.",
-        stack: ["React", "Socket.io", "Express", "Node.js", "Tailwind"],
-        liveUrl: "#",
-        sourceUrl: "https://github.com/amnk11",
-        icon: "💬",
-        tapeRotation: "rotate-2",
-        cardRotation: "-rotate-0.5"
+        cardRotation: "rotate-0.5",
       },
       {
         id: "auth-system",
         title: "Auth System",
-        description: "Robust authentication & authorization system with JWT, refresh tokens, role-based access control, and password hashing.",
+        description:
+          "Robust authentication and authorization system with JWT, refresh tokens, role-based access control, password hashing, and secure session management.",
         stack: ["Node.js", "TypeScript", "PostgreSQL", "Drizzle ORM"],
         liveUrl: "#",
-        sourceUrl: "https://github.com/amnk11",
+        sourceUrl: "https://github.com/amnk11/authentication",
         icon: "🔒",
-        tapeRotation: "-rotate-1",
-        cardRotation: "rotate-1"
+        category: "Authentication / Backend",
+        imageSrc: "/oidc_preview.jpg",
+        tapeRotation: "rotate-2",
+        cardRotation: "-rotate-0.5",
       },
       {
-        id: "oidc-service",
-        title: "OIDC Authentication Service",
-        description: "OAuth2 & OpenID Connect identity provider service supporting client credentials grant, single sign-on (SSO), and key rotation.",
-        stack: ["TypeScript", "Next.js", "tRPC", "Zod", "PostgreSQL"],
-        liveUrl: "#",
-        sourceUrl: "https://github.com/amnk11",
-        icon: "🗝️",
-        tapeRotation: "rotate-3",
-        cardRotation: "-rotate-1"
-      }
-    ] as Project[]
+        id: "savorly",
+        title: "Savorly",
+        description:
+          "A full stack food ordering application built with the MERN stack featuring authentication, product management, and a responsive user interface.",
+        stack: ["React", "Node.js", "MongoDB", "Express"],
+        liveUrl: "https://savorly-nu.vercel.app",
+        sourceUrl: "https://github.com/amnk11/savorly",
+        icon: "⭐️",
+        category: "Product / E-commerce",
+        imageSrc: "/savorly_preview.jpg",
+        tapeRotation: "-rotate-1",
+        cardRotation: "rotate-1",
+      },
+    ] as Project[],
   },
 
   contact: {
     header: "// get in touch",
-    envelopeText: "Have a project in mind or just want to say hi? Feel free to reach out!",
-    email: "hello@aman.dev",
+    envelopeText:
+      "Have a project in mind or just want to say hi? Feel free to reach out!",
+    email: "amankrdev28@gmail.com",
     statement: "Let's build something awesome together!",
-    underlineWord: "something awesome."
+    underlineWord: "something awesome.",
   },
 
   footer: "// made with ♡ and lots of coffee ☕ //",
+
   socials: {
     github: "https://github.com/amnk11",
-    linkedin: "https://www.linkedin.com/in/kumaraman17/",
-    email: "mailto:hello@aman.dev"
+    linkedin: "https://www.linkedin.com/in/kumaraman17",
+    email: "mailto:amankrdev28@gmail.com",
   },
 
   navLinks: [
@@ -189,6 +199,6 @@ while (building) {
     { name: "_skills", href: "#skills" },
     { name: "_experience", href: "#experience" },
     { name: "_projects", href: "#projects" },
-    { name: "_contact", href: "#contact" }
-  ]
+    { name: "_contact", href: "#contact" },
+  ],
 };

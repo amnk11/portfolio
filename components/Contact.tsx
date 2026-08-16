@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 
 export default function Contact() {
   const [copied, setCopied] = useState(false);
-  const email = "contact@aman.dev";
+  const email = "amankrdev28@gmail.com";
 
   const handleCopyEmail = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -43,7 +43,7 @@ export default function Contact() {
 
           {/* Supporting Statement */}
           <p className="text-base sm:text-xl text-zinc-400 font-light max-w-xl mx-auto mb-8 sm:mb-10 leading-relaxed">
-            Let's discuss your vision and engineer a fast, polished, production-ready product.
+            Let&apos;s discuss your vision and engineer a fast, polished, production-ready product.
           </p>
 
           {/* Direct Actions Row */}
@@ -101,7 +101,7 @@ export default function Contact() {
             </a>
 
             <a
-              href="https://www.linkedin.com/in/kumaraman17/"
+              href="https://www.linkedin.com/in/kumaraman17"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-[#16161e] border border-white/10 text-xs font-mono text-zinc-300 hover:text-white hover:border-white/20 transition-all focus-ring"

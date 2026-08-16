@@ -57,7 +57,7 @@ export default function Footer() {
           </h4>
           <div className="flex flex-col space-y-2 text-sm font-light">
             <a
-              href="mailto:contact@aman.dev"
+              href="mailto:amankrdev28@gmail.com"
               className="hover:text-white transition-colors w-fit focus-ring rounded"
             >
               Email
@@ -72,7 +72,7 @@ export default function Footer() {
               GitHub
             </a>
             <a
-              href="https://www.linkedin.com/in/kumaraman17/"
+              href="https://www.linkedin.com/in/kumaraman17"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-white transition-colors w-fit focus-ring rounded"

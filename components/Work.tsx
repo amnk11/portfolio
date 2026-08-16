@@ -4,48 +4,20 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import ProjectCard, { ProjectProps } from "./ProjectCard";
 import ProjectModal from "./ProjectModal";
-
-const PROJECTS: ProjectProps[] = [
-  {
-    title: "Savorly",
-    category: "Product / E-commerce",
-    technologies: ["React", "TypeScript", "Node.js", "MongoDB", "Auth"],
-    description:
-      "A modern product discovery and listing experience with authentication and a clean, responsive shopping interface.",
-    imageSrc: "/savorly_preview.jpg",
-    githubUrl: "https://github.com/amnk11",
-  },
-  {
-    title: "OIDC Authentication Service",
-    category: "Authentication / Backend",
-    technologies: [
-      "TypeScript",
-      "Node.js",
-      "Express",
-      "PostgreSQL",
-      "Drizzle ORM",
-      "JWT",
-      "OpenID Connect",
-      "JWKS",
-    ],
-    description:
-      "A production-oriented authentication service implementing modern OIDC concepts, JWT-based authentication, RSA signing, JWKS, and secure identity flows.",
-    imageSrc: "/oidc_preview.jpg",
-    githubUrl: "https://github.com/amnk11",
-  },
-  {
-    title: "IPL Management System",
-    category: "Backend / Database",
-    technologies: ["Node.js", "Express", "MongoDB", "REST API"],
-    description:
-      "A backend system designed around structured IPL data, API-driven operations, and database-backed management workflows.",
-    imageSrc: "/ipl_preview.jpg",
-    githubUrl: "https://github.com/amnk11",
-  },
-];
+import { PORTFOLIO_CONFIG } from "../config/portfolio";
 
 export default function Work() {
   const [selectedProject, setSelectedProject] = useState<ProjectProps | null>(null);
+
+  const projects: ProjectProps[] = PORTFOLIO_CONFIG.projects.items.map((project) => ({
+    title: project.title,
+    category: project.category || "Full Stack / Web App",
+    technologies: project.stack,
+    description: project.description,
+    imageSrc: project.imageSrc || "/hero_banner.jpg",
+    projectUrl: project.liveUrl && project.liveUrl !== "#" ? project.liveUrl : undefined,
+    githubUrl: project.sourceUrl,
+  }));
 
   return (
     <section id="work" className="py-20 sm:py-36 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
@@ -73,7 +45,7 @@ export default function Work() {
 
       {/* 3-Column Projects Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {PROJECTS.map((project) => (
+        {projects.map((project) => (
           <ProjectCard
             key={project.title}
             {...project}

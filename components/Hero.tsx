@@ -24,6 +24,7 @@ export default function Hero() {
             alt="Atmospheric dark cinematic landscape background"
             fill
             priority
+            sizes="100vw"
             className="object-cover object-center opacity-85 scale-100 transition-transform duration-1000 ease-out hover:scale-105"
           />
           {/* Subtle Mask Gradients for Text Contrast */}
